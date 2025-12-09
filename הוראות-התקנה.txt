@@ -1,0 +1,189 @@
+════════════════════════════════════════════════════════════════════════════════
+                    הוראות התקנה והפעלה - MarketBourd
+════════════════════════════════════════════════════════════════════════════════
+
+📁 מבנה הפרויקט
+─────────────────
+Test09122025/
+├── Backend/           # שרת .NET Core
+│   ├── Data/         # 📊 קבצי נתונים JSON
+│   └── wwwroot/      # 🖼️ תמונות
+│       └── uploads/
+│           ├── profiles/  # תמונות פרופיל משתמשים
+│           └── posts/     # תמונות מודעות
+└── Client/           # אפליקציית Angular
+
+
+📋 דרישות מקדימות
+──────────────────
+✅ .NET 6.0 SDK או גרסה עדכנית יותר
+✅ Node.js (גרסה 16 ומעלה)
+✅ Angular CLI
+
+
+🗂️ קבצי נתונים
+───────────────
+קבצי הנתונים (JSON) נמצאים ב:
+📍 Backend/Data/
+
+הקבצים:
+• users.json    - נתוני משתמשים (כולל הצפנת סיסמאות)
+• posts.json    - נתוני מודעות
+
+
+🖼️ קבצי תמונות
+──────────────
+התמונות נמצאות ב:
+📍 Backend/wwwroot/uploads/
+
+תיקיות:
+• profiles/  - תמונות פרופיל של משתמשים
+• posts/     - תמונות שמצורפות למודעות
+
+⚠️ חשוב: התמונות מוגשות בצורה סטטית דרך הבקאנד על http://localhost:5000/uploads/
+
+
+🔧 הגדרת הפרויקט
+─────────────────
+
+1️⃣ Backend (.NET)
+   ─────────────
+   נתיב: cd Backend
+   
+   📝 קובץ התצורה: appsettings.json
+   
+   🔑 JWT Settings (אבטחה):
+   ─────────────────────
+   "Jwt": {
+     "Key": "your-secret-key-min-32-characters-long",
+     "Issuer": "http://localhost:5000",
+     "Audience": "http://localhost:4200"
+   }
+   
+   🌐 פורטים:
+   ──────────
+   Backend מריץ על פורט: 5000
+   📍 לשינוי: ערוך Properties/launchSettings.json
+   
+   "applicationUrl": "http://localhost:5000"
+   
+   ⚠️ אם משנה את פורט הבקאנד, יש לעדכן גם ב-Client!
+
+
+2️⃣ Client (Angular)
+   ─────────────
+   נתיב: cd Client
+   
+   📝 קובץ התצורה: src/environments/environment.ts
+   
+   export const environment = {
+     production: false,
+     apiUrl: 'http://localhost:5000/api'  // ← כתובת הבקאנד
+   };
+   
+   🌐 פורטים:
+   ──────────
+   Client מריץ על פורט: 4200 (ברירת מחדל של Angular)
+   📍 לשינוי: הרץ ng serve --port XXXX
+   
+   ⚠️ אם משנה את פורט הקליינט:
+      1. עדכן ב-Backend/appsettings.json את ה-Audience
+      2. עדכן ב-Backend/Program.cs את ה-CORS policy
+
+
+🚀 הפעלת הפרויקט
+─────────────────
+
+📌 שלב 1: הפעל את Backend
+────────────────────────
+cd Backend
+dotnet restore
+dotnet run
+
+✅ הבקאנד אמור לרוץ על: http://localhost:5000
+✅ Swagger UI זמין ב: http://localhost:5000/swagger
+
+
+📌 שלב 2: הפעל את Client
+──────────────────────
+(בטרמינל נפרד)
+
+cd Client
+npm install
+ng serve
+
+✅ הקליינט אמור לרוץ על: http://localhost:4200
+
+
+🔐 משתמשים קיימים (לבדיקה)
+────────────────────────────
+ראה את הקובץ Backend/Data/users.json לרשימת משתמשים.
+
+⚠️ הסיסמאות מוצפנות! השתמש בנתונים מתוך הקובץ או צור משתמש חדש דרך ממשק ההרשמה.
+
+
+🌍 CORS והגדרות אבטחה
+────────────────────
+ברירת המחדל מאפשרת חיבורים מ:
+• http://localhost:4200
+
+לשינוי, ערוך את Backend/Program.cs בשורה:
+policy.WithOrigins("http://localhost:4200")
+
+
+📂 מיקום קבצים חשובים
+──────────────────────
+Backend:
+• נתונים:      Backend/Data/*.json
+• תמונות:      Backend/wwwroot/uploads/
+• הגדרות:      Backend/appsettings.json
+• פורטים:      Backend/Properties/launchSettings.json
+• DI & CORS:   Backend/Program.cs
+
+Client:
+• הגדרות API:  Client/src/environments/environment.ts
+• שירותים:     Client/src/app/services/
+• קומפוננטות:  Client/src/app/components/
+
+
+⚙️ שינוי פורטים - סיכום מהיר
+─────────────────────────────
+
+🔄 לשינוי פורט Backend (למשל ל-5001):
+   1. Backend/Properties/launchSettings.json → "applicationUrl": "http://localhost:5001"
+   2. Backend/appsettings.json → "Jwt.Issuer": "http://localhost:5001"
+   3. Client/src/environments/environment.ts → apiUrl: 'http://localhost:5001/api'
+
+🔄 לשינוי פורט Client (למשל ל-4300):
+   1. הרץ: ng serve --port 4300
+   2. Backend/appsettings.json → "Jwt.Audience": "http://localhost:4300"
+   3. Backend/Program.cs → WithOrigins("http://localhost:4300")
+
+
+💾 גיבוי והחזרה
+───────────────
+לגיבוי הנתונים, העתק:
+• Backend/Data/*.json
+• Backend/wwwroot/uploads/
+
+
+📞 בעיות נפוצות
+───────────────
+❌ שגיאת CORS:
+   → בדוק שהפורטים ב-Backend/Program.cs תואמים לקליינט
+
+❌ תמונות לא נטענות:
+   → ודא ש-Backend/wwwroot/uploads/ קיים ומכיל תמונות
+   → בדוק שהנתיב בקבצי JSON תואם למבנה התיקיות
+
+❌ שגיאת JWT:
+   → בדוק ש-Jwt:Key באורך לפחות 32 תווים
+
+❌ לא מצליח להתחבר ל-API:
+   → בדוק שהבקאנד רץ על הפורט הנכון
+   → בדוק את environment.ts בקליינט
+
+
+════════════════════════════════════════════════════════════════════════════════
+בהצלחה! 🎉
+════════════════════════════════════════════════════════════════════════════════
