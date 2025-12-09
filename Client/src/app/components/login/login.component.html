@@ -1,0 +1,173 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>{{ isEditMode ? 'עריכת פרופיל' : (isRegisterMode ? 'הרשמה' : 'התחברות') }}</h2>
+    
+    <!-- Error/Success Messages -->
+    <div class="message error" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+    <div class="message success" *ngIf="successMessage">
+      {{ successMessage }}
+    </div>
+
+    <!-- Login Form -->
+    <form *ngIf="!isRegisterMode" (ngSubmit)="onLogin()" class="login-form">
+      <div class="form-group">
+        <label for="loginUsername">שם משתמש</label>
+        <input
+          type="text"
+          id="loginUsername"
+          [(ngModel)]="loginUsername"
+          name="loginUsername"
+          placeholder="הכנס שם משתמש"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="loginPassword">סיסמה</label>
+        <input
+          type="password"
+          id="loginPassword"
+          [(ngModel)]="loginPassword"
+          name="loginPassword"
+          placeholder="הכנס סיסמה"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+        {{ isLoading ? 'מתחבר...' : 'התחבר' }}
+      </button>
+    </form>
+
+    <!-- Register Form -->
+    <form *ngIf="isRegisterMode" (ngSubmit)="onRegister()" class="login-form">
+      <!-- Profile Image Upload -->
+      <div class="form-group image-upload-group">
+        <label>תמונת פרופיל (אופציונלי)</label>
+        <div class="image-upload-container">
+          <div class="image-preview" *ngIf="imagePreview">
+            <img [src]="imagePreview" alt="Profile preview">
+          </div>
+          <div class="image-preview-placeholder" *ngIf="!imagePreview">
+            <span class="icon">📷</span>
+            <span class="text">בחר תמונה</span>
+          </div>
+          <input
+            type="file"
+            id="registerImage"
+            accept="image/*"
+            (change)="onImageSelected($event)"
+            style="display: none"
+          />
+          <button type="button" class="btn btn-secondary" (click)="triggerFileInput()">
+            {{ imagePreview ? 'החלף תמונה' : 'העלה תמונה' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="registerUsername">שם משתמש *</label>
+        <input
+          type="text"
+          id="registerUsername"
+          [(ngModel)]="registerUsername"
+          name="registerUsername"
+          placeholder="בחר שם משתמש"
+          [readonly]="isEditMode"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="registerEmail">אימייל *</label>
+        <input
+          type="email"
+          id="registerEmail"
+          [(ngModel)]="registerEmail"
+          name="registerEmail"
+          placeholder="הכנס אימייל"
+          [readonly]="isEditMode"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="registerFullName">שם מלא *</label>
+        <input
+          type="text"
+          id="registerFullName"
+          [(ngModel)]="registerFullName"
+          name="registerFullName"
+          placeholder="הכנס שם מלא"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="registerPhone">טלפון</label>
+        <input
+          type="tel"
+          id="registerPhone"
+          [(ngModel)]="registerPhone"
+          name="registerPhone"
+          placeholder="הכנס טלפון (אופציונלי)"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="registerAddress">כתובת</label>
+        <input
+          type="text"
+          id="registerAddress"
+          [(ngModel)]="registerAddress"
+          name="registerAddress"
+          placeholder="הכנס כתובת (אופציונלי)"
+        />
+      </div>
+
+      <div class="form-group" *ngIf="!isEditMode">
+        <label for="registerPassword">סיסמה *</label>
+        <input
+          type="password"
+          id="registerPassword"
+          [(ngModel)]="registerPassword"
+          name="registerPassword"
+          placeholder="בחר סיסמה (לפחות 6 תווים)"
+          required
+        />
+      </div>
+
+      <div class="form-group" *ngIf="!isEditMode">
+        <label for="registerConfirmPassword">אימות סיסמה *</label>
+        <input
+          type="password"
+          id="registerConfirmPassword"
+          [(ngModel)]="registerConfirmPassword"
+          name="registerConfirmPassword"
+          placeholder="הכנס סיסמה שוב"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+        {{ isLoading ? (isEditMode ? 'שומר...' : 'נרשם...') : (isEditMode ? 'שמור שינויים' : 'הירשם') }}
+      </button>
+    </form>
+
+    <!-- Toggle Button -->
+    <div class="toggle-mode" *ngIf="!isEditMode">
+      <button type="button" class="btn-link" (click)="toggleMode()">
+        {{ isRegisterMode ? 'כבר יש לך חשבון? התחבר' : 'אין לך חשבון? הירשם' }}
+      </button>
+    </div>
+    
+    <!-- Back Button in Edit Mode -->
+    <div class="toggle-mode" *ngIf="isEditMode">
+      <button type="button" class="btn-link" (click)="goBack()">
+        חזור לעמוד הראשי
+      </button>
+    </div>
+  </div>
+</div>

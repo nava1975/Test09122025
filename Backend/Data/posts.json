@@ -1,0 +1,94 @@
+[
+  {
+    "id": "ca40dbcd-b804-47de-8b0f-a37e70952cf1",
+    "title": "\u05E9\u05D5\u05DC\u05D7\u05DF \u05E1\u05DC\u05D5\u05DF \u05DC\u05DE\u05E1\u05D9\u05E8\u05D4",
+    "category": "\u05E8\u05D4\u05D9\u05D8\u05D9\u05DD",
+    "subCategory": "\u05E9\u05D5\u05DC\u05D7\u05DF",
+    "price": 0,
+    "imageUrl": "",
+    "location": {
+      "city": "\u05EA\u05DC \u05D0\u05D1\u05D9\u05D1",
+      "area": "\u05D3\u05E8\u05D5\u05DD \u05EA\u05DC \u05D0\u05D1\u05D9\u05D1",
+      "street": "\u05D1\u05D2\u05D9\u05DF 11",
+      "latitude": null,
+      "longitude": null
+    },
+    "ownerName": "\u05D9\u05E6\u05D7\u05E7 \u05D9\u05E2\u05E7\u05D1",
+    "phone1": "0527125817",
+    "phone2": null,
+    "description": "\u05DC\u05DE\u05E1\u05D9\u05E8\u05D4 \u05D1\u05D7\u05D9\u05E0\u05DD \u05E9\u05D5\u05DC\u05D7\u05DF \u05E1\u05DC\u05D5\u05E0\u05D9 \u05D1\u05DE\u05E6\u05D1 \u05DE\u05E6\u05D5\u05D9\u05D9\u05DF",
+    "status": "Active",
+    "createdAt": "2025-12-09T09:15:45.4509651+02:00",
+    "createdBy": "",
+    "profileImageUrl": null
+  },
+  {
+    "id": "3e7bb69d-3ad4-4121-bb84-efa171b82734",
+    "title": "\u05E1\u05E4\u05D4",
+    "category": "\u05E8\u05D4\u05D9\u05D8\u05D9\u05DD",
+    "subCategory": "\u05E1\u05E4\u05D4",
+    "price": 100,
+    "imageUrl": "/uploads/21a4bb7c-aa3b-4b95-a805-d11e05f28346.jpg",
+    "location": {
+      "city": "\u05D0\u05DC\u05E2\u05D3",
+      "area": null,
+      "street": "\u05E9\u05DE\u05E2\u05D9\u05D4 10",
+      "latitude": 32.0520122,
+      "longitude": 34.9474061
+    },
+    "ownerName": "\u05E8\u05D7\u05DE\u05D9\u05DD",
+    "phone1": "0527125817",
+    "phone2": "0577423155",
+    "description": "\u05E1\u05E4\u05D4 \u05D3\u05D5 \u05DE\u05D5\u05E9\u05D1\u05D9\u05EA \u05D1\u05DE\u05E6\u05D1 \u05DE\u05E6\u05D5\u05D9\u05D9\u05DF \u05DC\u05DE\u05E1\u05D9\u05E8\u05D4",
+    "status": "Active",
+    "createdAt": "2025-12-09T09:37:33.2837817+02:00",
+    "createdBy": "a9e85653-c074-46f9-8d01-3d080ef914f4",
+    "profileImageUrl": null
+  },
+  {
+    "id": "0f2d567e-c5a3-4417-93a9-e37dcae4abd7",
+    "title": "\u05DC\u05D4\u05E9\u05DB\u05E8\u05D4",
+    "category": "\u05D3\u05D9\u05E8\u05D4",
+    "subCategory": "\u05D4\u05E9\u05DB\u05E8\u05D4",
+    "price": 2300,
+    "imageUrl": "",
+    "location": {
+      "city": "\u05EA\u05DC \u05D0\u05D1\u05D9\u05D1",
+      "area": "\u05DE\u05E8\u05DB\u05D6",
+      "street": "\u05DE\u05E0\u05D7\u05DD \u05D1\u05D2\u05D9\u05DF 35",
+      "latitude": 32.0995594,
+      "longitude": 34.9569645
+    },
+    "ownerName": "\u05D9\u05E2\u05E7\u05D1",
+    "phone1": "025555666",
+    "phone2": null,
+    "description": null,
+    "status": "Active",
+    "createdAt": "2025-12-09T11:26:56.6797549+02:00",
+    "createdBy": "a9e85653-c074-46f9-8d01-3d080ef914f4",
+    "profileImageUrl": null
+  },
+  {
+    "id": "fa4e50c1-077f-444c-b61e-565ca005e80c",
+    "title": "\u05DE\u05DB\u05D5\u05E0\u05EA \u05DB\u05D1\u05D9\u05E1\u05D4 \u05DC\u05DE\u05E1\u05D9\u05E8\u05D4",
+    "category": "\u05DE\u05DB\u05D5\u05E0\u05EA \u05DB\u05D1\u05D9\u05E1\u05D4",
+    "subCategory": "\u05DE\u05DB\u05E9\u05D9\u05E8\u05D9 \u05D7\u05E9\u05DE\u05DC",
+    "price": 100,
+    "imageUrl": "/uploads/d3677eec-9048-4831-bdf6-1eb52c413ceb.jpg",
+    "location": {
+      "city": "\u05E8\u05DE\u05EA \u05D2\u05DF",
+      "area": "\u05D4\u05DE\u05E8\u05DB\u05D6",
+      "street": "\u05E7\u05E8\u05D9\u05E0\u05D9\u05E6\u05D9 38",
+      "latitude": null,
+      "longitude": null
+    },
+    "ownerName": "DD",
+    "phone1": "0527125817",
+    "phone2": null,
+    "description": "\u05DC\u05DE\u05E1\u05D9\u05E8\u05D4 \u05D1\u05DE\u05D7\u05D9\u05E8 \u05DE\u05D5\u05D6\u05DC \u05DE\u05DB\u05D5\u05E0\u05EA \u05DB\u05D1\u05D9\u05E1\u05D4 \u05DE\u05E6\u05D5\u05D9\u05D9\u05E0\u05EA, \u05D1\u05E9\u05D9\u05DE\u05D5\u05E9 \u05E9\u05E0\u05D4 ,  \u05E2\u05E7\u05D1 \u05DE\u05E2\u05D1\u05E8 \u05D3\u05D9\u05E8\u05D4.\r\n\u05DC\u05D4\u05EA\u05E7\u05E9\u05E8 \u05D1\u05E2\u05E8\u05D1",
+    "status": "Active",
+    "createdAt": "2025-12-09T11:45:43.5152264+02:00",
+    "createdBy": "a9e85653-c074-46f9-8d01-3d080ef914f4",
+    "profileImageUrl": null
+  }
+]

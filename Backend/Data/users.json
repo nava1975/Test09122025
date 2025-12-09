@@ -1,0 +1,44 @@
+[
+  {
+    "id": "db81cc28-eb65-4814-8a6b-99f82a6ac6c5",
+    "username": "nava1",
+    "email": "navadaich@gmail.com",
+    "passwordHash": "jZae727K08KaOmKSgOaGzww/XVqGr/PKEgIMkjrcbJI=",
+    "fullName": "nava daich",
+    "phone": "0527125817",
+    "address": "\u05D4\u05DE\u05D2\u05E9\u05D9\u05DE\u05D9\u05DD 11 \u05E8\u05DE\u05EA \u05D2\u05DF",
+    "profileImageUrl": null,
+    "role": "User",
+    "isActive": true,
+    "createdAt": "2025-12-09T06:10:04.6000068Z",
+    "lastLoginAt": "2025-12-09T06:10:57.9734863Z"
+  },
+  {
+    "id": "a9e85653-c074-46f9-8d01-3d080ef914f4",
+    "username": "DD",
+    "email": "d0527125817",
+    "passwordHash": "jZae727K08KaOmKSgOaGzww/XVqGr/PKEgIMkjrcbJI=",
+    "fullName": "DD",
+    "phone": "0527125817",
+    "address": "\u05D4\u05DE\u05D2\u05E9\u05D9\u05DE\u05D9\u05DD 11 \u05E8\u05DE\u05EA \u05D2\u05DF",
+    "profileImageUrl": "/uploads/profiles/2d033a75-6710-404e-b60b-782ea5cfa3b4.png",
+    "role": "User",
+    "isActive": true,
+    "createdAt": "2025-12-09T06:19:02.5434609Z",
+    "lastLoginAt": "2025-12-09T09:24:32.9928274Z"
+  },
+  {
+    "id": "c6533c23-977f-4cd3-802f-3daacd528dee",
+    "username": "testuser123",
+    "email": "test@test.com",
+    "passwordHash": "jZae727K08KaOmKSgOaGzww/XVqGr/PKEgIMkjrcbJI=",
+    "fullName": "Test User",
+    "phone": "",
+    "address": "",
+    "profileImageUrl": null,
+    "role": "User",
+    "isActive": true,
+    "createdAt": "2025-12-09T10:58:51.3282421Z",
+    "lastLoginAt": "2025-12-09T10:58:51.612467Z"
+  }
+]

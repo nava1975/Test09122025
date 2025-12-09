@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Ensure Material menus appear above everything */
+.cdk-overlay-container {
+  z-index: 9999 !important;
+}
+
+.mat-menu-panel {
+  max-width: none !important;
+  min-width: 200px !important;
+}
+
+/* Fix body overflow to prevent menu cutoff */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html, body {
+  height: 100%;
+}

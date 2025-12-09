@@ -1,0 +1,101 @@
+<div class="profile-container" *ngIf="!isLoading">
+  <!-- Profile Header -->
+  <div class="profile-header">
+    <h1>פרופיל משתמש</h1>
+    <button mat-raised-button color="primary" (click)="toggleEdit()" *ngIf="!isEditing">
+      <mat-icon>edit</mat-icon>
+      עריכת פרופיל
+    </button>
+  </div>
+
+  <!-- Error/Success Messages -->
+  <div class="message error-message" *ngIf="errorMessage">
+    <mat-icon>error</mat-icon>
+    {{ errorMessage }}
+  </div>
+  <div class="message success-message" *ngIf="successMessage">
+    <mat-icon>check_circle</mat-icon>
+    {{ successMessage }}
+  </div>
+
+  <!-- Profile Content -->
+  <div class="profile-content">
+    <!-- Profile Image -->
+    <div class="profile-image-section">
+      <div class="image-container">
+        <img *ngIf="imagePreview" [src]="imagePreview" alt="Profile Image" class="profile-image">
+        <div *ngIf="!imagePreview" class="profile-image default-avatar">
+          <mat-icon>account_circle</mat-icon>
+        </div>
+        <div class="image-overlay" *ngIf="isEditing">
+          <label for="imageInput" class="upload-label">
+            <mat-icon>camera_alt</mat-icon>
+            <span>החלף תמונה</span>
+          </label>
+          <input type="file" id="imageInput" accept="image/*" (change)="onImageSelected($event)" style="display: none">
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Form -->
+    <div class="profile-form-section">
+      <form [formGroup]="profileForm">
+        <!-- Full Name -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>שם מלא</mat-label>
+          <input matInput formControlName="fullName" [readonly]="!isEditing">
+          <mat-icon matPrefix>person</mat-icon>
+          <mat-error *ngIf="profileForm.get('fullName')?.hasError('required')">
+            שם מלא הוא שדה חובה
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Username (readonly) -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>שם משתמש</mat-label>
+          <input matInput [value]="currentUser?.username" readonly>
+          <mat-icon matPrefix>account_circle</mat-icon>
+        </mat-form-field>
+
+        <!-- Email (readonly) -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>אימייל</mat-label>
+          <input matInput [value]="currentUser?.email" readonly>
+          <mat-icon matPrefix>email</mat-icon>
+        </mat-form-field>
+
+        <!-- Phone -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>טלפון</mat-label>
+          <input matInput formControlName="phone" [readonly]="!isEditing" type="tel">
+          <mat-icon matPrefix>phone</mat-icon>
+        </mat-form-field>
+
+        <!-- Address -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>כתובת</mat-label>
+          <textarea matInput formControlName="address" [readonly]="!isEditing" rows="2"></textarea>
+          <mat-icon matPrefix>location_on</mat-icon>
+        </mat-form-field>
+
+        <!-- Action Buttons (shown only in edit mode) -->
+        <div class="button-group" *ngIf="isEditing">
+          <button mat-raised-button color="primary" (click)="saveProfile()" [disabled]="profileForm.invalid || isLoading">
+            <mat-icon>save</mat-icon>
+            שמור שינויים
+          </button>
+          <button mat-raised-button (click)="toggleEdit()" [disabled]="isLoading">
+            <mat-icon>cancel</mat-icon>
+            ביטול
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Loading Spinner -->
+<div class="loading-container" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+  <p>טוען...</p>
+</div>

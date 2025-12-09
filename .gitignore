@@ -1,0 +1,33 @@
+# Backend - .NET
+bin/
+obj/
+*.user
+*.suo
+*.cache
+.vs/
+
+# Frontend - Angular/Node
+node_modules/
+dist/
+.angular/
+*.log
+
+# Testing
+e2e/
+playwright/
+playwright-report/
+test-results/
+screenshots/
+playwright.config.ts
+
+# IDEs
+.vscode/
+.idea/
+
+# Documentation & Planning
+*.md
+*.prompt
+
+# OS
+.DS_Store
+Thumbs.db

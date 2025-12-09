@@ -1,0 +1,108 @@
+﻿<div class="search-container">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
+    <div class="search-header">
+      <h3>חיפוש מודעות</h3>
+    </div>
+
+    <div class="search-fields">
+      <!-- שורה אחת: כל שדות החיפוש -->
+      <div class="search-row single-row">
+        <div class="field-group extra-wide">
+          <label class="field-label">חיפוש חופשי</label>
+          <input class="search-input" formControlName="searchText" placeholder="חפש לפי כותרת או תיאור...">
+        </div>
+        <div class="field-group">
+          <label class="field-label">קטגוריה</label>
+          <input class="search-input" formControlName="category" placeholder="קטגוריה">
+        </div>
+        <div class="field-group">
+          <label class="field-label">תת קטגוריה</label>
+          <input class="search-input" formControlName="subCategory" placeholder="תת קטגוריה">
+        </div>
+        <div class="field-group">
+          <label class="field-label">עיר</label>
+          <input class="search-input" formControlName="city" placeholder="עיר">
+        </div>
+        <div class="field-group">
+          <label class="field-label">אזור</label>
+          <input class="search-input" formControlName="area" placeholder="מרכז">
+        </div>
+        <div class="field-group">
+          <label class="field-label">כתובת</label>
+          <input class="search-input" formControlName="address" placeholder="רחוב, שכונה...">
+        </div>
+        <div class="field-group narrow">
+          <label class="field-label">מחיר מינ׳</label>
+          <input class="search-input" type="number" formControlName="minPrice" placeholder="0">
+        </div>
+        <div class="field-group narrow">
+          <label class="field-label">מחיר מקס׳</label>
+          <input class="search-input" type="number" formControlName="maxPrice" placeholder="10000">
+        </div>
+        <div class="field-group">
+          <label class="field-label">סטטוס</label>
+          <select class="search-input search-select" formControlName="status">
+            <option value="">הכל</option>
+            <option *ngFor="let status of statusList" [value]="status">{{ status }}</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- שורה נפרדת לתאריכים וחיפוש בקרבתי -->
+      <div class="search-row date-proximity-row">
+        <div class="field-group date-field">
+          <label class="field-label">מתאריך</label>
+          <input class="search-input" type="date" formControlName="fromDate">
+        </div>
+        <div class="field-group date-field">
+          <label class="field-label">עד תאריך</label>
+          <input class="search-input" type="date" formControlName="toDate">
+        </div>
+        
+        <!-- חיפוש בקרבתי -->
+        <div class="field-group location-field">
+          <label class="field-label">חיפוש בקרבה</label>
+          <button type="button" 
+                  class="location-button" 
+                  (click)="useMyLocation()"
+                  [disabled]="isLocating"
+                  [class.active]="locationDetected"
+                  title="אתר את מיקומי הנוכחי">
+            <span *ngIf="!isLocating && !locationDetected">📍 אתר מיקום</span>
+            <span *ngIf="isLocating">🔄 מאתר...</span>
+            <span *ngIf="!isLocating && locationDetected">✅ מיקום אותר</span>
+          </button>
+        </div>
+        
+        <div class="field-group radius-field" *ngIf="locationDetected">
+          <label class="field-label">מרחק (ק"מ)</label>
+          <input type="number" 
+                 class="search-input radius-input-field" 
+                 formControlName="radiusKm" 
+                 min="1" 
+                 max="100"
+                 placeholder="5">
+        </div>
+      </div>
+      
+      <!-- הצגת כתובת מאותרת -->
+      <div class="detected-address" *ngIf="locationDetected && detectedAddress">
+        <span class="address-icon">📍</span>
+        <span class="address-text">כתובת מאותרת: <strong>{{ detectedAddress }}</strong></span>
+      </div>
+    </div>
+
+    <div class="location-error" *ngIf="locationError">
+      ⚠️ {{ locationError }}
+    </div>
+
+    <div class="search-actions">
+      <button type="submit" class="search-button primary">
+        חפש
+      </button>
+      <button type="button" class="search-button secondary" (click)="onClear()">
+        נקה
+      </button>
+    </div>
+  </form>
+</div>

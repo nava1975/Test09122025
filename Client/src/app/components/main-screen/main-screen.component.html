@@ -1,0 +1,11 @@
+<app-title title="What's good IN THE HOOD!" subtitle="מצא ומכור בקלות"></app-title>
+
+<main class="main-screen-container">
+  <section class="search-section">
+    <app-search-post (searchResults)="onSearchResults($event)" (clearFilter)="onClearFilter()"></app-search-post>
+  </section>
+
+  <section class="board-section">
+    <app-posts-board></app-posts-board>
+  </section>
+</main>

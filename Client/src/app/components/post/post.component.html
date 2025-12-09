@@ -1,0 +1,72 @@
+<div class="post-card">
+  <!-- שורת תגיות עליונה -->
+  <div class="tags-row">
+    <!-- תגית אזור בפינה הימנית -->
+    <div class="area-badge" *ngIf="post.location?.area">
+      <mat-icon>map</mat-icon>
+      <span>{{ post.location.area }}</span>
+    </div>
+
+    <!-- תגיות קטגוריה ותת קטגוריה -->
+    <div class="post-tags">
+      <span class="tag category-tag">{{ post.category }}</span>
+      <span class="tag subcategory-tag" *ngIf="post.subCategory">{{ post.subCategory }}</span>
+    </div>
+  </div>
+
+  <!-- שורה ראשונה: כותרת -->
+  <div class="post-header">
+    <h3 class="post-title">{{ post.title }}</h3>
+  </div>
+
+  <!-- תמונה - רק אם קיימת -->
+  <div class="post-image" *ngIf="post.imageUrl">
+    <img [src]="apiUrl + post.imageUrl" [alt]="post.title">
+  </div>
+
+  <!-- גוף המודעה -->
+  <div class="post-body">
+    <div class="post-details">
+      <div class="price-section">
+        <span class="price">₪{{ post.price }}</span>
+      </div>
+      <div class="location-section" *ngIf="post.location">
+        <mat-icon>location_on</mat-icon>
+        <span>{{ post.location.city }}</span>
+        <span *ngIf="post.location.area"> - {{ post.location.area }}</span>
+      </div>
+      <p class="description" *ngIf="post.description">{{ post.description }}</p>
+    </div>
+
+    <!-- כרטיס לקוח -->
+    <div class="client-card">
+      <div class="client-info">
+        <img *ngIf="post.profileImageUrl" [src]="apiUrl + post.profileImageUrl" alt="Profile" class="client-avatar">
+        <mat-icon *ngIf="!post.profileImageUrl" class="client-icon">person</mat-icon>
+        <div class="client-details">
+          <div class="client-name">{{ post.ownerName }}</div>
+          <div class="client-phone">
+            <mat-icon>phone</mat-icon>
+            {{ post.phone1 }}
+          </div>
+          <div class="client-phone2" *ngIf="post.phone2">
+            <mat-icon>phone</mat-icon>
+            {{ post.phone2 }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- פעולות -->
+  <div class="post-actions">
+    <button mat-icon-button (click)="onEdit()" title="ערוך" *ngIf="canEdit">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="onDelete()" title="מחק" *ngIf="canEdit">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <span class="post-date">{{ post.createdAt | date:'dd/MM/yyyy' }}</span>
+  </div>
+</div>
+

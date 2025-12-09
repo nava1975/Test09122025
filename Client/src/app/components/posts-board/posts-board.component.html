@@ -1,0 +1,37 @@
+<div class="posts-board-container">
+  
+  <!-- כפתור יצירת מודעה -->
+  <div class="create-post-bar" *ngIf="isLoggedIn()">
+    <button mat-raised-button color="primary" (click)="createNewPost()" class="create-btn">
+      <mat-icon>add</mat-icon>
+      צור מודעה חדשה
+    </button>
+  </div>
+
+  <!-- לוח המודעות -->
+  <div class="posts-board">
+    <div *ngIf="loading" class="loading">
+      <p>טוען מודעות...</p>
+    </div>
+
+    <div *ngIf="error" class="error">
+      <p>{{ error }}</p>
+      <button mat-button (click)="loadPosts()">נסה שוב</button>
+    </div>
+
+    <div *ngIf="!loading && !error && posts.length === 0" class="empty">
+      <p>אין מודעות להצגה</p>
+    </div>
+
+    <div class="posts-grid" *ngIf="!loading && !error && posts.length > 0">
+      <app-post 
+        *ngFor="let post of posts" 
+        [post]="post"
+        [canEdit]="canEditPost(post)"
+        [apiUrl]="apiUrl"
+        (edit)="editPost($event)"
+        (delete)="deletePost($event)">
+      </app-post>
+    </div>
+  </div>
+</div>

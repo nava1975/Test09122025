@@ -1,0 +1,43 @@
+<div class="map-bg-root" [ngStyle]="{ height: height }">
+<!-- map canvas sits fully behind -->
+<div class="map-canvas" #mapContainer aria-hidden="true"></div>
+
+<!-- User Menu -->
+<div class="user-menu">
+  <!-- Logged In User -->
+  <div *ngIf="isLoggedIn()" translate="no">
+    <button mat-button [matMenuTriggerFor]="userMenu" class="user-button" translate="no">
+      <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+      <span class="user-name" translate="no">{{ currentUser?.fullName || currentUser?.username || 'משתמש' }}</span>
+      <img *ngIf="currentUser?.profileImageUrl" [src]="getProfileImageUrl(currentUser?.profileImageUrl)" class="user-avatar" alt="profile">
+      <mat-icon *ngIf="!currentUser?.profileImageUrl" class="user-avatar-icon">account_circle</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu" xPosition="before" class="user-dropdown-menu">
+      <button mat-menu-item (click)="goToProfile()" translate="no">
+        <mat-icon>person</mat-icon>
+        <span>הפרופיל שלי</span>
+      </button>
+      <button mat-menu-item (click)="logout()" translate="no">
+        <mat-icon>logout</mat-icon>
+        <span>התנתק</span>
+      </button>
+    </mat-menu>
+  </div>
+  
+  <!-- Not Logged In -->
+  <button *ngIf="!isLoggedIn()" mat-raised-button color="primary" (click)="goToLogin()" class="login-button">
+    <mat-icon>login</mat-icon>
+    <span>כניסה / הרשמה</span>
+  </button>
+</div>
+
+<!-- white glass header centered horizontally near the top -->
+<div class="title-plate" role="banner">
+<h1 class="title">{{ title }}</h1>
+<p class="subtitle" *ngIf="subtitle">{{ subtitle }}</p>
+</div>
+
+
+<!-- slot for content (optional) -->
+<ng-content></ng-content>
+</div>

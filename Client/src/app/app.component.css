@@ -1,0 +1,44 @@
+/* App-level navigation styling */
+.app-nav {
+	background: transparent;
+	padding: 8px 16px;
+}
+
+.nav-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 12px; /* default gap between nav items */
+}
+
+.nav-link {
+	color: #333;
+	text-decoration: none;
+	font-weight: 600;
+	padding: 8px 12px;
+	border-radius: 8px;
+}
+
+.nav-link:hover {
+	background: rgba(102,126,234,0.08);
+}
+
+.spacer {
+	flex: 1; /* pushes subsequent items to the right */
+}
+
+.btn-link {
+	background: none;
+	border: none;
+	padding: 8px 12px;
+	cursor: pointer;
+	font-weight: 600;
+	color: #333;
+}
+
+.btn-link:hover {
+	background: rgba(102,126,234,0.08);
+	border-radius: 8px;
+}
+
