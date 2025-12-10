@@ -62,10 +62,10 @@ Test09122025/
    
    🌐 פורטים:
    ──────────
-   Backend מריץ על פורט: 5000
+   Backend מריץ על פורט: 5020
    📍 לשינוי: ערוך Properties/launchSettings.json
    
-   "applicationUrl": "http://localhost:5000"
+   "applicationUrl": "http://localhost:5020"
    
    ⚠️ אם משנה את פורט הבקאנד, יש לעדכן גם ב-Client!
 
