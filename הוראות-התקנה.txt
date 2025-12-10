@@ -10,7 +10,7 @@ Test09122025/
 │   └── wwwroot/      # 🖼️ תמונות
 │       └── uploads/
 │           ├── profiles/  # תמונות פרופיל משתמשים
-│           └── posts/     # תמונות מודעות
+│           # תמונות מודעות
 └── Client/           # אפליקציית Angular
 
 
@@ -100,8 +100,8 @@ cd Backend
 dotnet restore
 dotnet run
 
-✅ הבקאנד אמור לרוץ על: http://localhost:5000
-✅ Swagger UI זמין ב: http://localhost:5000/swagger
+✅ הבקאנד אמור לרוץ על: http://localhost:5020
+✅ Swagger UI זמין ב: http://localhost:5020/swagger
 
 
 📌 שלב 2: הפעל את Client
@@ -120,7 +120,9 @@ ng serve
 ראה את הקובץ Backend/Data/users.json לרשימת משתמשים.
 
 ⚠️ הסיסמאות מוצפנות! השתמש בנתונים מתוך הקובץ או צור משתמש חדש דרך ממשק ההרשמה.
-
+משתמש שיעבוד: 
+username: DD  password:123456
+לא ניתן לייצר מודעות חדשות כל עוד לא מחוברים
 
 🌍 CORS והגדרות אבטחה
 ────────────────────
